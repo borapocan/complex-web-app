@@ -19,3 +19,15 @@ after_success:
   - docker push borapocan/multi-nginx
   - docker push borapocan/multi-server
   - docker push borapocan/multi-worker
+
+deploy:
+  provider: elasticbeanstalk
+  region: "eu-west-1"
+  app: "multi-docker"
+  env: "Multi-docker-env"
+  bucket_name: "elasticbeanstalk-eu-west-1-381491923711"
+  bucket_path: "multi-docker"
+  on:
+    branch: master
+  access_key_id: "$AWS_ACCESS_KEY"
+  secret_access_key: "$AWS_SECRET_ACCESS_KEY"
