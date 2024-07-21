@@ -1,19 +1,19 @@
 {
-	"AWSEBDockerrunVersion": 2,
+	"AWSEBDockerrunVersion": 3,
 	"containerDefinitions": [
 		{
 			"name": "client",
 			"image": "borapocan/multi-client",
 			"hostname": "client",
 			"essential": false,
-			"memory": 128
+			"memory": 256
 		},
 		{
 			"name": "server",
 			"image": "borapocan/multi-server",
 			"hostname": "api",
 			"essential": false,
-			"memory": 128
+			"memory": 256
 
 		},
 		{
@@ -21,7 +21,7 @@
 			"image": "borapocan/multi-worker",
 			"hostname": "worker",
 			"essential": false,
-			"memory": 128
+			"memory": 256
 
 		},
 		{
@@ -36,7 +36,7 @@
 				}
 			],
 			"links": ["client", "server"],
-			"memory": 128
+			"memory": 256
 		}
 	]
 }
