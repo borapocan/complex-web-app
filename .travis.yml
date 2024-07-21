@@ -10,12 +10,12 @@ script:
   - docker run -e CI=true borapocan/complex-web-app npm run test
 
 after_success:
-  - docker build -t borapocan/multi-client ./client
-  - docker build -t borapocan/multi-nginx ./nginx
-  - docker build -t borapocan/multi-server ./server
-  - docker build -t borapocan/multi-worker ./worker
+  - docker build -t borapocan/multi-client:latest ./client
+  - docker build -t borapocan/multi-nginx:latest ./nginx
+  - docker build -t borapocan/multi-server:latest ./server
+  - docker build -t borapocan/multi-worker:latest ./worker
   - echo "$DOCKER_SECRET" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push borapocan/multi-client
-  - docker push borapocan/multi-nginx
-  - docker push borapocan/multi-server
-  - docker push borapocan/multi-worker
+  - docker push borapocan/multi-client:latest
+  - docker push borapocan/multi-nginx:latest
+  - docker push borapocan/multi-server:latest
+  - docker push borapocan/multi-worker:latest
